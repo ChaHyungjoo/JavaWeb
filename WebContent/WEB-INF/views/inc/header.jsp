@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header id="header">
+		<div class="content-container">
+		<h1 id="logo">
+			<a href="">
+			<img src="../images/logo.png" alt="뉴렉쳐사이트" />
+			</a>
+		</h1>
+			<section>
+				<h2 class="hidden">머릿말</h2>
+				
+				<nav class="hr-list main-menu">
+					<h1 class="hidden">메인메뉴</h1>
+					
+					<ul>
+						<li><a href="">학습가이드</a></li>
+						<li><a href="">뉴렉과정</a></li>
+						<li><a href="">강좌선택</a></li>
+					</ul>
+				</nav>
+				
+				<section id="search-form">
+					<h1 class="hidden">강좌검색 폼</h1>
+					<form>
+						<label>과정검색</label>
+						<input type="" />
+						<input type="submit" class="btn btn-search" value="" />
+					</form>
+				</section>
+				
+				
+				<nav class="hr-list member-menu">	
+					<h1 class="hidden">회원메뉴</h1>
+					<ul>
+						<li><a href="">HOME</a></li>
+						<li><a href="">로그인</a></li>
+						<li><a href="">회원가입</a></li>
+					</ul>	
+				</nav>
+					
+				<nav id="customer-menu" class="hr-list">
+					<h1 class="hidden">고객메뉴</h1>
+					<ul>
+						<li><a href=""><img alt="마이페이지" src="../images/txt-mypage.png" /></a></li>
+						<li><a href=""><img alt="고객센터" src="../images/txt-customer.png" /></a></li>
+					</ul>
+				</nav>
+			</section>
+		</div>
+	</header>
+
+
+</body>
+</html>
