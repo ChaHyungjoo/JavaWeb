@@ -35,7 +35,7 @@
 					<h1 class="hidden">강좌검색 폼</h1>
 					<form>
 						<label>과정검색</label>
-						<input type="" />
+						<input type="text" />
 						<input type="submit" class="btn btn-search" value="" />
 					</form>
 				</section>

@@ -73,7 +73,8 @@ public class NoticeListController extends HttpServlet{
 		request.setAttribute("list", list);
 		
 		//response.sendRedirect("notice.jsp");	//새로운 페이지 호출
-		request.getRequestDispatcher("/WEB-INF/views/customer/notice/list.jsp").forward(request, response);	//페이지에 담긴 정보를 가지고 다음 페이지로 넘어감
+		request.getRequestDispatcher("/WEB-INF/views/customer/notice/list.jsp")
+		.forward(request, response);	//페이지에 담긴 정보를 가지고 다음 페이지로 넘어감
 		
 		
 	}

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
 					<h3>공지사항 검색 폼</h3>
 					<form action="notice" method="get">
 						<label>검색어</label>
-						<input type="text" name="title"/>
+						<input type="" name="title"/>
 						<input type="submit" />
 					</form>
 				</div>
