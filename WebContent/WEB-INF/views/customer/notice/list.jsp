@@ -14,38 +14,13 @@
 	<!-- header 부분 -->
 	<jsp:include page="../../inc/header.jsp"></jsp:include>
 	
-	<div id="visual">
-		<div class="content-container">
-		</div>
-	</div>
+	<!-- visual 부분 -->
+	<jsp:include page="../inc/visual.jsp"></jsp:include>
 	
 	<div id="body" class="clearfix">
 		<div class="content-container">
-			<aside id="aside">
-<!-- 				<h1>고객센터</h1>
-				
-				<nav>
-					<h1>고객센터 메뉴</h1>
-					<ul>
-						<li><a href="">공지사항</a></li>
-						<li><a href="">1:1고객문의</li>
-						<li><a href="">학습안내</li>
-					</ul>
-				</nav>
-			
-				<nav>
-					<h1>추천사이트</h1>
-					<ul>
-						<li>앤서이즈</li>
-						<li>W3C</li>
-						<li>마이크로소프트</li>
-					</ul>
-				</nav>
-				
-				<nav>
-					<h1>구글광고</h1>
-				</nav> -->
-		  	</aside>
+			<!-- aside 부분 -->
+			<jsp:include page="../inc/aside.jsp"></jsp:include>
 		  	
 		  	<main id="main">
  				<h2>공지사항</h2>
@@ -77,10 +52,10 @@
 						<th>조회수</th>
 					</tr>
 	
-					<c:forEach var="n" items="${list}" begin="0" end="3" step="2">
+					<c:forEach var="n" items="${list}">
 						<tr>
 							<td>${n.id}</td>
-							<td><a href="notice-detail">${n.title}</a></td>
+							<td><a href="notice-detail?id=${n.id}">${n.title}</a></td>
 							<td>hj</td>
 							<td>${n.regDate}</td>
 							<td>${n.hit}</td>
@@ -94,15 +69,8 @@
 		</div>
 	</div>
 	
-	<footer id="footer">
-		<div class="content-container">
-		</div>
-	</footer>
-	
-<!-- 	<div id="floating">
-		플로팅 박스
-		<div></div>
-	</div> -->
+	<!-- footer 부분 -->
+	<jsp:include page="../../inc/footer.jsp"></jsp:include>
 	
 </body>
 </html>

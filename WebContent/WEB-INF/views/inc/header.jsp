@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>    
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +15,7 @@
 		<div class="content-container">
 		<h1 id="logo">
 			<a href="">
-			<img src="../images/logo.png" alt="뉴렉쳐사이트" />
+			<img src="${path}/images/logo.png" alt="뉴렉쳐사이트" />
 			</a>
 		</h1>
 			<section>
@@ -49,8 +53,8 @@
 				<nav id="customer-menu" class="hr-list">
 					<h1 class="hidden">고객메뉴</h1>
 					<ul>
-						<li><a href=""><img alt="마이페이지" src="../images/txt-mypage.png" /></a></li>
-						<li><a href=""><img alt="고객센터" src="../images/txt-customer.png" /></a></li>
+						<li><a href=""><img alt="마이페이지" src="${path}/images/txt-mypage.png" /></a></li>
+						<li><a href=""><img alt="고객센터" src="${path}/images/txt-customer.png" /></a></li>
 					</ul>
 				</nav>
 			</section>
