@@ -33,36 +33,41 @@
 						<li>공지사항</li>
 					</ol>
 				</div>
-				<table class="table">
-					<tr>
-						<th>제목</th>
-						<td colspan="3">${notice.title}</td>
-					</tr>
-						<th>작성일</th>
-						<td colspan="3">${notice.regDate}</td>
-					<tr>
-						<th>작성자</th>
-						<td>${notice.writerId}</td>
-						<th>조회수</th>
-						<td>${notice.hit}</td>
-					</tr>
-					
-					<tr>
-						<th>첨부파일</th>
-						<td colspan="3"></td>
-					</tr>
-					
-					<tr>
-						<td colspan="4">${notice.content}</td>
-					</tr>
-					
-				</table>
 				
-				<div>
-					<a class="btn btn-default" href="notice-list">목록</a>
-					<a class="btn btn-default" href="notice-edit?id=${notice.id}">수정</a>
-					<a class="btn btn-default" href="notice-del">삭제</a>
-				</div>
+				<form method="post">
+					<table border="1">
+						<tr>
+							<th>제목</th>
+							<td colspan="3"><input name="title" value="${notice.title}" /></td>
+						</tr>
+							<th>작성일</th>
+							<td colspan="3">${notice.regDate}</td>
+						<tr>
+							<th>작성자</th>
+							<td>${notice.writerId}</td>
+							<th>조회수</th>
+							<td>${notice.hit}</td>
+						</tr>
+						
+						<tr>
+							<th>첨부파일</th>
+							<td colspan="3"></td>
+						</tr>
+						
+						<tr>
+							<td colspan="4">
+							<textarea name="content">${notice.content}</textarea>
+							</td>
+						</tr>
+						
+					</table>
+					
+					<div>
+						<input type="hidden" name="id" value="${notice.id}" />
+						<input type="submit" class="btn btn-default" value="저장" />
+						<a href="notice-detail?id=${notice.id}" class="btn btn-default">취소</a>
+					</div>
+				</form>
 			</main>
 		</div>
 	</div>

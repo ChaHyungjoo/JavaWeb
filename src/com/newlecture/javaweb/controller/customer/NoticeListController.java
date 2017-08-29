@@ -56,6 +56,7 @@ public class NoticeListController extends HttpServlet{
 				n.setId(rs.getString("ID"));
 				n.setTitle(rs.getString("TITLE"));
 				n.setContent(rs.getString("CONTENT"));
+				n.setWriterId(rs.getString("WRITERID"));
 				n.setHit(rs.getInt("HIT"));
 				list.add(n);
 			}

@@ -43,7 +43,7 @@
 					</form>
 				</div>
 	
-				<table border="1">
+				<table class="table table-list">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -56,14 +56,14 @@
 						<tr>
 							<td>${n.id}</td>
 							<td><a href="notice-detail?id=${n.id}">${n.title}</a></td>
-							<td>hj</td>
+							<td>${n.writerId}</td>
 							<td>${n.regDate}</td>
 							<td>${n.hit}</td>
 						</tr>
 					</c:forEach>
 	
 				</table>
-				<a class="btn btn-default" href="">글쓰기</a>
+				<a class="btn btn-default" href="notice-reg">글쓰기</a>
 				<a class="btn-img btn-cancel" href ="">취소</a>
 			</main>
 		</div>
