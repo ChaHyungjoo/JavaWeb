@@ -23,7 +23,7 @@
 			<jsp:include page="../inc/aside.jsp"></jsp:include>
 		  	
 		  	<main id="main">
- 				<h2>공지사항</h2>
+ 				<h2 class="main title">공지사항</h2>
 				
 				<div>
 					<h3>경로</h3>	
@@ -54,15 +54,27 @@
 	
 					<c:forEach var="n" items="${list}">
 						<tr>
-							<td>${n.id}</td>
-							<td><a href="notice-detail?id=${n.id}">${n.title}</a></td>
-							<td>${n.writerId}</td>
-							<td>${n.regDate}</td>
-							<td>${n.hit}</td>
+							<td class="w60">${n.id}</td>
+							<td class="title"><a href="notice-detail?id=${n.id}">${n.title}</a></td>
+							<td class="w100">${n.writerId}</td>
+							<td class="w100">${n.regDate}</td>
+							<td class="w60">${n.hit}</td>
 						</tr>
 					</c:forEach>
-	
 				</table>
+				
+				<c:set var="page" value="${param.p}" />
+				<c:set var="startNum" value="${page-(page-1)%5}" />
+				<div>
+					<div><a href="?p=1">이전</a></div>
+					<ul>
+						<c:forEach var="i" begin="0" end="4">
+							<li><a href="?p=${startNum+i}">${startNum+i}</a></li>
+						</c:forEach>
+					</ul>
+					<div><a href="?p=6">다음</a></div>
+				</div>
+				
 				<a class="btn btn-default" href="notice-reg">글쓰기</a>
 				<a class="btn-img btn-cancel" href ="">취소</a>
 			</main>

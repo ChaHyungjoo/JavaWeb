@@ -29,7 +29,7 @@ public class NoticeRegController extends HttpServlet{
 		String content = request.getParameter("content");
 		
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-		String sql = "update Notice set title=?, content=? where id=?";
+		String sql = "insert into Notice(id, title, content, writerId) values((select ifnull(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
 
 		// jdbc 드라이버 로드
 		try {
@@ -42,6 +42,7 @@ public class NoticeRegController extends HttpServlet{
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
+			st.setString(3, "newlec");
 
 			// 결과 가져오기
 			int result = st.executeUpdate();
