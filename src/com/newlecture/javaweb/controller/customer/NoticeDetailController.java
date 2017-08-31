@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.newlecture.javaweb.dao.NoticeDao;
+import com.newlecture.javaweb.dao.jdbc.JdbcNoticeDao;
 import com.newlecture.javaweb.entity.Notice;
 
 @WebServlet("/customer/notice-detail")
@@ -25,47 +27,11 @@ public class NoticeDetailController extends HttpServlet{
 		String _id = request.getParameter("id");
 		String id ="";	//기본값
 		
-		// Model--------------------------------------------------------------------------------------
-		Notice n = null;
-		
 		if(_id!=null && !_id.equals(""))
 			id = _id;
-
-		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-		String sql = "SELECT * FROM Notice WHERE id=?";
-
-		// jdbc 드라이버 로드
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-			// 연결 /인증
-			Connection con = DriverManager.getConnection(url, "sist", "cclass");
-
-			// 실행
-			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, id);
-
-			// 결과 가져오기
-			ResultSet rs = st.executeQuery();
-
-			if(rs.next()) {
-				n = new Notice();
-				n.setId(rs.getString("ID"));
-				n.setTitle(rs.getString("TITLE"));
-				n.setContent(rs.getString("CONTENT"));
-				n.setWriterId(rs.getString("WRITERID"));
-				n.setHit(rs.getInt("HIT"));
-			}
-
-			rs.close();
-			st.close();
-			con.close();
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		// Model--------------------------------------------------------------------------------------
+		NoticeDao noticeDao = new JdbcNoticeDao();
+		Notice n = noticeDao.get(id);
 		
 		request.setAttribute("notice", n);
 		

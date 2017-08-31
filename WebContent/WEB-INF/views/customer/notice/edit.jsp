@@ -35,10 +35,10 @@
 				</div>
 				
 				<form method="post">
-					<table border="1">
+					<table>
 						<tr>
 							<th>제목</th>
-							<td colspan="3"><input name="title" value="${notice.title}" /></td>
+							<td class="text-left" colspan="3"><input name="title" value="${notice.title}" /></td>
 						</tr>
 							<th>작성일</th>
 							<td colspan="3">${notice.regDate}</td>

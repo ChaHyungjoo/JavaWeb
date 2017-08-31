@@ -18,7 +18,7 @@
 	<jsp:include page="../inc/visual.jsp"></jsp:include>
 	
 	<div id="body" class="clearfix">
-		<div class="content-container">
+		<div class="content-container"><!--  -->
 			<!-- aside 부분 -->
 			<jsp:include page="../inc/aside.jsp"></jsp:include>
 		  	
@@ -45,26 +45,28 @@
 	
 				<table class="table table-list">
 					<tr>
-						<th>번호</th>
+						<th class="w60">번호</th>
 						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
+						<th class="w100">작성자</th>
+						<th class="w100">작성일</th>
+						<th class="w60">조회수</th>
 					</tr>
 	
 					<c:forEach var="n" items="${list}">
 						<tr>
-							<td class="w60">${n.id}</td>
-							<td class="title"><a href="notice-detail?id=${n.id}">${n.title}</a></td>
-							<td class="w100">${n.writerId}</td>
-							<td class="w100">${n.regDate}</td>
-							<td class="w60">${n.hit}</td>
+							<td>${n.id}</td>
+							<td class="title text-left text-indent"><a href="notice-detail?id=${n.id}">${n.title}</a></td>
+							<td>${n.writerId}</td>
+							<td>${n.regDate}</td>
+							<td>${n.hit}</td>
 						</tr>
 					</c:forEach>
 				</table>
 				
 				<c:set var="page" value="${param.p}" />
 				<c:set var="startNum" value="${page-(page-1)%5}" />
+				<c:set var="lastNum" value="${count/10}" />
+				${lastNum}
 				<div>
 					<div><a href="?p=1">이전</a></div>
 					<ul>
