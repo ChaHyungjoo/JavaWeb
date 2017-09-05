@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="../css/reset.css" type="text/css" rel="stylesheet" />
-<link href="../css/style.css" type="text/css" rel="stylesheet" />
+<link href="../../css/reset.css" type="text/css" rel="stylesheet" />
+<link href="../../css/style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<!-- header 부분 -->
@@ -35,10 +35,18 @@
 				</div>
 				
 				<form method="post">
-					<table border="1" class="table">
+					<table>
 						<tr>
 							<th>제목</th>
-							<td colspan="3"><input name="title" /></td>
+							<td class="text-left" colspan="3"><input name="title" value="${notice.title}" /></td>
+						</tr>
+							<th>작성일</th>
+							<td colspan="3">${notice.regDate}</td>
+						<tr>
+							<th>작성자</th>
+							<td>${notice.writerId}</td>
+							<th>조회수</th>
+							<td>${notice.hit}</td>
 						</tr>
 						
 						<tr>
@@ -48,14 +56,16 @@
 						
 						<tr>
 							<td colspan="4">
-							<textarea name="content"></textarea>
+							<textarea name="content">${notice.content}</textarea>
 							</td>
 						</tr>
+						
 					</table>
 					
 					<div>
-						<input type="submit" class="btn btn-default" value="등록" />
-						<a href="notice-list" class="btn btn-default">취소</a>
+						<input type="hidden" name="id" value="${notice.id}" />
+						<input type="submit" class="btn btn-default" value="저장" />
+						<a href="detail?id=${notice.id}" class="btn btn-default">취소</a>
 					</div>
 				</form>
 			</main>

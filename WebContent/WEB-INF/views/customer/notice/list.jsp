@@ -56,7 +56,7 @@
 					<c:forEach var="n" items="${list}">
 						<tr>
 							<td>${n.id}</td>
-							<td class="title text-left text-indent"><a href="notice-detail?id=${n.id}">${n.title}</a></td>
+							<td class="title text-left text-indent"><a href="notice-detail?id=${n.id}">${n.title}[${n.countCmt}]</a></td>
 							<td>${n.writerId}</td>
 							<td>${n.regDate}</td>
 							<td>${n.hit}</td>

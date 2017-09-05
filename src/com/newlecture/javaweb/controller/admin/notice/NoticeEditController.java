@@ -1,4 +1,4 @@
-package com.newlecture.javaweb.controller.customer;
+package com.newlecture.javaweb.controller.admin.notice;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,7 +19,7 @@ import com.newlecture.javaweb.dao.NoticeDao;
 import com.newlecture.javaweb.dao.jdbc.JdbcNoticeDao;
 import com.newlecture.javaweb.entity.Notice;
 
-@WebServlet("/customer/notice-edit")
+@WebServlet("/admin/notice/edit")
 public class NoticeEditController extends HttpServlet{
 	
 	@Override
@@ -34,7 +34,7 @@ public class NoticeEditController extends HttpServlet{
 		NoticeDao noticeDao = new JdbcNoticeDao();
 		int result = noticeDao.update(id, title, content);
 		
-		response.sendRedirect("notice-detail?id="+id);
+		response.sendRedirect("detail?id="+id);
 		
 	}
 	
@@ -89,7 +89,7 @@ public class NoticeEditController extends HttpServlet{
 		request.setAttribute("notice", n);
 		
 		//response.sendRedirect("notice.jsp");	//새로운 페이지 호출
-		request.getRequestDispatcher("/WEB-INF/views/customer/notice/edit.jsp").forward(request, response);	//페이지에 담긴 정보를 가지고 다음 페이지로 넘어감
+		request.getRequestDispatcher("/WEB-INF/views/admin/notice/edit.jsp").forward(request, response);	//페이지에 담긴 정보를 가지고 다음 페이지로 넘어감
 		
 	}
 }

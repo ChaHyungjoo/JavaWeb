@@ -1,4 +1,4 @@
-package com.newlecture.javaweb.controller.customer;
+package com.newlecture.javaweb.controller.admin.notice;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.newlecture.javaweb.entity.Notice;
 
-@WebServlet("/customer/notice-reg")
+@WebServlet("/admin/notice/reg")
 public class NoticeRegController extends HttpServlet{
 	
 	@Override
@@ -63,7 +63,7 @@ public class NoticeRegController extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/views/customer/notice/reg.jsp").forward(request, response);	//페이지에 담긴 정보를 가지고 다음 페이지로 넘어감
+		request.getRequestDispatcher("/WEB-INF/views/admin/notice/reg.jsp").forward(request, response);	//페이지에 담긴 정보를 가지고 다음 페이지로 넘어감
 		
 	}
 }
