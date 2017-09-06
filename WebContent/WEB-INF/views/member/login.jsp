@@ -65,7 +65,5 @@
 	
 	<!-- footer 부분 -->
 	<jsp:include page="../inc/footer.jsp"></jsp:include>
-	
-join페이지
 </body>
 </html>
