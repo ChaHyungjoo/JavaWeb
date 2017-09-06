@@ -30,8 +30,15 @@ public class LoginController extends HttpServlet{
 			response.sendRedirect("login?error");
 		else if(!member.getPwd().equals(pwd))
 			response.sendRedirect("login?error");
-		else {
-			//���� ������ ���� �ڷḦ ����Ѵ�
+		else {	//인증 성공
+			//현재 사용자의 상태 정보를 저장하는 저장소
+			//session
+			request.getSession().setAttribute("id", id);
+			//cookie
+			
+			//모든 사용자의 상태 정보를 저장하는 저장소
+			//application
+			
 		}
 		
 		response.sendRedirect("../index");

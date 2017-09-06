@@ -57,8 +57,35 @@
 	
 	alert(add(3,8,10)); */
 	
-	a = 1;
+	//a = 1;     글로벌변수(전역변수 개념)(window.a = 1 과 같음, 자바의 this)
+	//var a = 1;  지역변수
+	//클로저 - 리소스를 닫아주는 함수
+	
+	
+	/* function f1(){
+		a = 1;
+	}
+	
+	function f2(){
+		alert(a);
+	}
+	
+	f1();
+	f2(); */
+	
+	function f1(){
+		var a = 1;
+		
+		return function f2(){
+			return a;
+		}
+	}
+	
+	var f = f1();
+	var a = f();
 	alert(a);
+	
+	
 	
 	
 </script>

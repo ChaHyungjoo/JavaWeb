@@ -1,6 +1,7 @@
 package com.newlecture.javaweb.controller.admin.notice;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.newlecture.javaweb.entity.Notice;
 
@@ -31,20 +33,20 @@ public class NoticeRegController extends HttpServlet{
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		String sql = "insert into Notice(id, title, content, writerId) values((select ifnull(max(cast(id as unsigned)), 0)+1 from Notice n), ?, ?, ?)";
 
-		// jdbc µå¶óÀÌ¹ö ·Îµå
+		// jdbc ë“œë¼ì´ë²„ ë¡œë“œ
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			// ¿¬°á /ÀÎÁõ
+			// ì—°ê²° /ì¸ì¦
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 
-			// ½ÇÇà
+			// ì‹¤í–‰
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
 			st.setString(3, "newlec");
 
-			// °á°ú °¡Á®¿À±â
+			// ê²°ê³¼ ê°€ì ¸ì˜¤ê¸°
 			int result = st.executeUpdate();
 			
 			st.close();
@@ -63,7 +65,16 @@ public class NoticeRegController extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/views/admin/notice/reg.jsp").forward(request, response);	//ÆäÀÌÁö¿¡ ´ã±ä Á¤º¸¸¦ °¡Áö°í ´ÙÀ½ ÆäÀÌÁö·Î ³Ñ¾î°¨
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("id")==null)
+			out.print("<script>alert('ë¡œê·¸ì¸ì´ í•„ìš”í•œ ìš”ì²­ì…ë‹ˆë‹¤.');location.href='../../member/login';</script>");
+		else
+			request.getRequestDispatcher("/WEB-INF/views/admin/notice/reg.jsp").forward(request, response);	//í˜ì´ì§€ì— ë‹´ê¸´ ì •ë³´ë¥¼ ê°€ì§€ê³  ë‹¤ìŒ í˜ì´ì§€ë¡œ ë„˜ì–´ê°
+		
 		
 	}
 }
