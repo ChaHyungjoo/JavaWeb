@@ -16,7 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.newlecture.javaweb.dao.MemberDao;
+import com.newlecture.javaweb.dao.MemberRoleDao;
 import com.newlecture.javaweb.dao.NoticeDao;
+import com.newlecture.javaweb.dao.jdbc.JdbcMemberRoleDao;
 import com.newlecture.javaweb.dao.jdbc.JdbcNoticeDao;
 import com.newlecture.javaweb.entity.Notice;
 
@@ -24,6 +27,15 @@ import com.newlecture.javaweb.entity.Notice;
 public class NoticeListController extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 인증한 적이 있는지 없다면 login 하고 와
+		
+		// 왔다면 인증정보를 줘서 ROLE_ADMIN이 있는지 확인
+		
+		MemberRoleDao memberRoleDao = new JdbcMemberRoleDao();
+		//boolean roleHas = memberRoleDao.hasRole(id, roleName);
+		// 없다면 에러-권한없음 페이지로
+		
 		
 		String _query = request.getParameter("title");
 		String _page = request.getParameter("p");

@@ -106,24 +106,58 @@
 		
 	} */
 	
-	function printResult(){
-		var x, y;
-		x = prompt("x 값을 입력하세요", 0);
-		y = prompt("y 값을 입력하세요", 0);
+
+	
+	/* function calcApp(){
+		var btnPrint = document.getElementById("btn-print");
+		btnPrint.onclick = printResult;
 		
-		x = parseInt(x);
-		y = parseInt(y);
+		function printResult(){
+			var x, y;
+			x = prompt("x 값을 입력하세요", 0);
+			y = prompt("y 값을 입력하세요", 0);
+			
+			x = parseInt(x);
+			y = parseInt(y);
+			
+			btnPrint.value = x+y;
+			//btnPrint.type = "text";
+		}
+	}
+
+	window.onload = calcApp; */
+	
+	function calcApp(){
 		
-		btnPrint.value = x+y;
+		var x = document.getElementById("x");
+		var y = document.getElementById("y");
+		var addClick = document.getElementById("add-button");
+		var resultText = document.getElementById("result");
+		
+		addClick.onclick = addBtnClick;
+		
+		function addBtnClick(){
+			
+			x = parseInt(x.value);
+			y = parseInt(y.value);
+			
+			resultText.value = x+y;
+			//btnPrint.type = "text";
+		}
 	}
 	
+	window.onload = calcApp;
 </script>
 
 </head>
 <body>
 
 <!-- <input type="button" value="출력" onclick="alert('안내 메시지');" /> -->
-<input type="button" value="출력" onclick="printResult();" id="btnPrint"/>
+
+	<input type="text" id="x" placeholder="x값을 입력하세요" /> +
+	<input type="text" id="y" placeholder="y값을 입력하세요" /> =
+	<input type="button" value="더하기" id="add-button" />
+	<input type="text" value="" id="result" />
 
 
 

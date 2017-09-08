@@ -30,11 +30,12 @@ public class HomeController extends HttpServlet{
 		//1. 로그인 한 적이 없다면 일단 로그인하러가
 		
 		if(_memberId == null)
-			response.sendRedirect("login");
+			response.sendRedirect("login?returnURL=home");
 		else {
 			String memberId = _memberId.toString();
 			MemberRoleDao memberRoleDao = new JdbcMemberRoleDao();
 			
+			//2. 왔냐
 			String defaultRoleId = memberRoleDao.getDefaultRoleId(memberId);
 			if(defaultRoleId.equals("ROLE_ADMIN"))
 				response.sendRedirect("../admin/index");
@@ -43,10 +44,8 @@ public class HomeController extends HttpServlet{
 			else
 				response.sendRedirect("../index");
 				
-			
 		}
 		
-		//2. 왔냐
 		
 		
 	}

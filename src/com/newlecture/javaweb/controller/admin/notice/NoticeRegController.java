@@ -71,7 +71,7 @@ public class NoticeRegController extends HttpServlet{
 		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("id")==null)
-			out.print("<script>alert('로그인이 필요한 요청입니다.');location.href='../../member/login';</script>");
+			out.print("<script>alert('로그인이 필요한 요청입니다.');location.href='../../member/login?returnURL=../admin/notice/reg';</script>");
 		else
 			request.getRequestDispatcher("/WEB-INF/views/admin/notice/reg.jsp").forward(request, response);	//�럹�씠吏��뿉 �떞湲� �젙蹂대�� 媛�吏�怨� �떎�쓬 �럹�씠吏�濡� �꽆�뼱媛�
 		
