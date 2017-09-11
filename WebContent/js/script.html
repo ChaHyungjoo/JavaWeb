@@ -147,17 +147,66 @@
 	}
 	
 	window.onload = calcApp;
+	//-------------------------------------------------------------------------------------
+	
+	window.onload = function(){
+		var countLabel = document.getElementById("count-label");
+		var countButton = document.getElementById("count-button");
+		var timerId = null;
+		
+		var ex1 = document.getElementById("ex1");
+		ex1.style.marginTop = "0px";
+		
+		countButton.onclick = countButtonClick;
+		
+		function countButtonClick(){
+			
+			if(timerId ==null)
+				timerId = setInterval(function(){
+					var count = parseInt(countLabel.textContent);
+					var marginTop = parseInt(ex1.style.marginTop);
+					
+					//목표치에 도달했을 경우
+					if(count <= 0){
+						clearInterval(timerId);
+						timerId = null;
+					}
+					
+					if(marginTop >= 100){
+						clearInterval(timerId);
+						timerId = null;
+					}
+					
+					//countLabel.textContent = count - 1;
+					ex1.style.marginTop = (marginTop+1)+"px";
+					
+				}, 30);
+		}
+		
+		
+		
+	};
+	
+	
 </script>
 
 </head>
 <body>
 
-<!-- <input type="button" value="출력" onclick="alert('안내 메시지');" /> -->
 
-	<input type="text" id="x" placeholder="x값을 입력하세요" /> +
-	<input type="text" id="y" placeholder="y값을 입력하세요" /> =
-	<input type="button" value="더하기" id="add-button" />
-	<input type="text" value="" id="result" />
+	<p>
+		남은시간 <span id="count-label">60</span>초
+		<input id="count-button" type="button" value="카운트 시작" />
+	</p>
+	<hr />
+
+	<!-- <input type="button" value="출력" onclick="alert('안내 메시지');" /> -->
+	<div id="ex1">
+		<input type="text" id="x" placeholder="x값을 입력하세요" /> +
+		<input type="text" id="y" placeholder="y값을 입력하세요" /> =
+		<input type="button" value="더하기" id="add-button" />
+		<input type="text" value="" id="result" />
+	</div>
 
 
 
