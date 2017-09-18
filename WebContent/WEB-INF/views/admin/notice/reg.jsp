@@ -34,7 +34,7 @@
 					</ol>
 				</div>
 				
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
 					<table border="1" class="table">
 						<tr>
 							<th>제목</th>
@@ -43,7 +43,8 @@
 						
 						<tr>
 							<th>첨부파일</th>
-							<td colspan="3"></td>
+							<td colspan="3"><input type="file" name="file"/></td>
+							
 						</tr>
 						
 						<tr>

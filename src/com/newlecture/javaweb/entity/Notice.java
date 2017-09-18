@@ -10,19 +10,21 @@ public class Notice {
 	private String writerId;
 	private Date regDate;
 	private int hit;
+	private String fileName;
+	
 
 	public Notice() {
 
 	}
 
-	public Notice(String id, String title, String content, String writerId, Date regDate, int hit) {
-		super();
+	public Notice(String id, String title, String content, String writerId, Date regDate, int hit, String fileName) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.writerId = writerId;
 		this.regDate = regDate;
 		this.hit = hit;
+		this.fileName = fileName;
 	}
 
 	public String getId() {
@@ -73,4 +75,14 @@ public class Notice {
 		this.hit = hit;
 	}
 
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	
+	
 }

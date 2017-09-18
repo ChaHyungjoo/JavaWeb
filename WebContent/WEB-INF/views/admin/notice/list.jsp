@@ -95,7 +95,7 @@
 					</div>
 				</div>
 				
-				<a class="btn btn-default" href="notice-reg">글쓰기</a>
+				<a class="btn btn-default" href="reg">글쓰기</a>
 				<a class="btn-img btn-cancel" href ="">취소</a>
 			</main>
 		</div>

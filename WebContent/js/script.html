@@ -187,19 +187,80 @@
 		
 	};
 	
+	<!-- open a window 예제 ------------------------------------------------>
+	
+	window.onload = function(){
+
+		var openButton = document.getElementById("open-button");
+		var movButton = document.getElementById("mov-button");
+		var transButton = document.getElementById("trans-button");
+		var iframe = window.frames[0];
+		
+		var win = null;
+		
+		
+		openButton.onclick = function(){
+			if(win==null)
+				win = open("notice.html", "_blank", "width=500px height=300px");
+		};
+		
+		movButton.onclick = function(){
+			if(win != null)
+				win.moveBy(-10, 0);
+		};
+		
+		transButton.onclick = function(){
+			//iframe.location.href="http://www.daum.net";
+			iframe.document.write("hello");
+		};
+		
+	};
+	
+	<!-- iframe 예제 ------------------------------------------------>
+	/* 
+	window.onload = function(){
+
+		var navButton = document.getElementById("nav-button");
+		var win = window.frames[0];
+		
+		navButton.onclick = function(){
+			win.location.href="http://www.newlecture.com";
+		};
+		
+	}; */
+	
+	
 	
 </script>
 
 </head>
 <body>
 
-
+	<!-- ifrmae 예제------ ------------------------------------------------>
+	
+	<div>
+		<input id="nav-button" type="button" value="페이지 전환" />
+		<iframe src="notice.html" style="width:500px; height:300px;" ></iframe>	
+	</div>
+	<hr />
+	
+	<!-- open a window 예제 ------------------------------------------------>
+	<div>
+		<input id="open-button" type="button" value="새창띄우기"/>
+		<input id="mov-button" type="button" value="왼쪽으로 이동"/>
+		<input id="trans-button" type="button" value="페이지  이동"/>
+	</div>
+	<hr />
+	
+	<!-- Timer 예제 -------------------------------------------------------->
 	<p>
 		남은시간 <span id="count-label">60</span>초
 		<input id="count-button" type="button" value="카운트 시작" />
 	</p>
 	<hr />
-
+	
+	
+	<!-- Calculator 예제 -------------------------------------------------------->
 	<!-- <input type="button" value="출력" onclick="alert('안내 메시지');" /> -->
 	<div id="ex1">
 		<input type="text" id="x" placeholder="x값을 입력하세요" /> +
