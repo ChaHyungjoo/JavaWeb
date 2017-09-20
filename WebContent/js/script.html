@@ -229,6 +229,55 @@
 		
 	}; */
 	
+	<!-- 노드 순회 예제 ------------------------------------------------>
+	
+	window.onload = function(){
+		
+		var chButton = document.getElementById("ch-button");
+		var p = document.getElementById("p");
+		
+		chButton.onclick = function(){
+			//p.firstElementChild.style.border = "blue solid 1px";
+			for(var node = p.firstChild; node != null ; node = node.nextSibling)
+				alert(node.nodeType);
+			
+		};
+		
+	};
+	
+	<!-- Selector 예제 ------------------------------------------------>
+	
+	window.onload = function(){
+		
+		var chButton = document.querySelector("#ch-button1");
+		//var p = document.querySelector("#module1 > div:first-child + div > div");
+		var divs = document.querySelectorAll("#module1 > div");
+		var p = divs[1].querySelector("div");
+				
+		chButton.onclick = function(){
+			p.style.border = "red solid 1px";
+			
+		};
+		
+	};
+	
+	<!-- 속성 변경 예제 ------------------------------------------------>
+	
+	window.onload = function(){
+		
+		var url = document.querySelector("#url");
+		var chImgButton = document.querySelector("#ch-img-button");
+		var container = document.querySelector("#img-container");
+		var img = container.querySelector("img");
+				
+		chImgButton.onclick = function(){
+			
+			//img.src = "https://s-media-cache-ak0.pinimg.com/originals/6b/5a/8c/6b5a8cc63ce660cd4dd0bc7752f31a98.png";
+			img.src = url.value;
+			
+		};
+		
+	};
 	
 	
 </script>
@@ -236,7 +285,43 @@
 </head>
 <body>
 
-	<!-- ifrmae 예제------ ------------------------------------------------>
+	<!-- 속성 변경 예제------------------------------------------------------>
+	<input id="url" type="text" />
+	<input id="ch-img-button" type="button" value="이미지 변경" />
+	<div id="img-container">
+		<img src="https://s-media-cache-ak0.pinimg.com/originals/f7/d8/97/f7d8977935a3ef91038141f04e7e759c.png">
+		<!-- https://s-media-cache-ak0.pinimg.com/originals/6b/5a/8c/6b5a8cc63ce660cd4dd0bc7752f31a98.png -->
+	</div>	
+	
+	<hr />
+
+	<!-- Selector API 예제------------------------------------------------------>
+	<input id="ch-button1" type="button" value="배경색 변경" />
+	<div id="module1">
+		<div>1</div>
+		<div>
+			<div>2</div>
+			<!-- comment -->	
+		</div>
+		<div>3</div>
+	</div>	
+	
+	<hr />
+
+	<!-- 노드 순회 예제------------------------------------------------------>
+	<input id="ch-button" type="button" value="배경색 변경" />
+	<div>
+		<div>1</div>
+		<div id="p">
+			<div>2</div>
+			<!-- comment -->	
+		</div>
+		<div>3</div>
+	</div>	
+	
+	<hr />
+
+	<!-- ifrmae 예제------------------------------------------------------>
 	
 	<div>
 		<input id="nav-button" type="button" value="페이지 전환" />
